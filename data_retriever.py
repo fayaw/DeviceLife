@@ -103,6 +103,10 @@ class DataRetriever:
         else:
             raise ValueError("Either base_pv or base_id must be provided.")
 
+        # convert val_range to a list if it is a tuple
+        if isinstance(val_range, tuple):
+            val_range = list(val_range)
+
         # Convert val_range to a list of lists if it is not already in that format    
         if isinstance(val_range, list) and len(val_range) == 2 and not isinstance(val_range[0], list):
             val_range = [val_range]

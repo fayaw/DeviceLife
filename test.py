@@ -29,7 +29,7 @@ def main():
     obj = DataRetriever(webServer='LCLS', pvNames=pvNamesFlat, startTime='06/26/2024 08:08:08', endTime='06/27/2024 08:08:08', duration_hour=24)
 
     # set base_pv to the forward power
-    obj.set_base_pv(base_pv = pvNames['pwr']['fwd'], val_range = (10, 5000))
+    obj.set_base_pv(base_pv = pvNames['pwr']['fwd'], val_range = [10, 5000])
     
 
 
@@ -48,7 +48,7 @@ def main():
     print(f"PV Names: {obj.get_property('pvNames')}")
     print(f"Synchronized Data Duration (hours): {obj._DataRetriever__synData.attrs['duration_hour']:.1f}")
 
-    #plot_time_synData (obj.get_property('synData'))
+    #subplot_time_synData (obj.get_property('synData'))
     #plot_normalized_synData(obj.get_property('synData'))
     #plot_scatter_moving_window(obj.get_property('synData'))
 
